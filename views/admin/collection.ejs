@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/admin/style.css">
+</head>
+
+<body>
+    <div class="main-area">
+        <div class="sidebar">
+            <h1></h1>
+            <div style="min-height: 200px; height: auto; display: flex; flex-direction: column;">
+                <h1 style="font-size: 16px; margin-bottom: 5px; letter-spacing: 0.05em; color: rgb(255, 255, 255); background-color: black; width: fit-content; padding: 5px;">
+                    COLLECTIONS</h1>
+                <% for( let i=0; i < collections.length; i++ ) { %>
+                    <a href="/admin/collection/<%= collections[i] %>" class="sidebarLink">
+                        <%= collections[i] %>
+                    </a>
+                    <% } %>
+
+            </div>
+            <div style="min-height: 200px; height: auto; display: flex; flex-direction: column;">
+                <h1 style="font-size: 16px; margin-bottom: 5px; letter-spacing: 0.05em; color: rgb(255, 255, 255); background-color: black; width: fit-content; padding: 5px;">
+                    SINGLES
+                </h1>
+            </div>
+        </div>
+        <div class="main">
+            <div style="margin-left: 100px;">
+                <div style="display: flex; flex-direction: row; align-items: center; align-content: center; margin-top: 60px; margin-bottom: 30px;">
+                    <h1 style="font-size: 30px; letter-spacing: 0.05em; text-transform: uppercase;">
+                        <%= collectionName %>
+                    </h1>
+                    <a type="button" href="/admin/newcollection/<%= collectionName %>" value="New" class="button-dark" style="margin-left: 15px;">New</a>
+                </div>
+                <div style="display: flex; flex-direction: column; overflow-x: auto; overflow-y: visible; margin-bottom: 50px;">
+                    <div>
+                        <input type="text" placeholder="Search...">
+                        <input type="button" value="Search" class="button-dark">
+                    </div>
+                </div>
+                <div style="overflow-x: hidden;">
+                    <% if (collectionData.length> 0) { %>
+                        <% for( let i=0; i < collectionData.length; i++ ) { %>
+                            <div onclick="window.open('/admin/editcollection/<%= collectionName %>-edit-<%= collectionData[i].slug %>', '_self')" class="collectionItem">
+                                <p>
+                                    <%= collectionData[i].name %>
+                                </p>
+                            </div>
+                            <% } %>
+                                <% } else { %>
+                                    <p>There is currently nothing to show!</p>
+
+                                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

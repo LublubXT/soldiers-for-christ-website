@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+            <div class="header-area-small"
+                style="background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.625) 100%), center / cover no-repeat url('<%= pageData[pageData.length-1].data[5].data %>'); display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
+                <div class="container"
+                    style="display: column; justify-content: center; align-items: center; align-content: center; height: fit-content; padding-bottom: 40px;">
+                    <p
+                        style="margin: 0px; text-align: left; text-transform: uppercase; color: #001d3d50; font-size: 20px; margin-bottom: 15px; font-weight: 700;">
+                        Most Recent Post
+                    </p>
+                    <h1 style="margin: 0px; margin-bottom: 30px; margin-left: -5px; text-align: left;"
+                        class="header-title">
+                        <%= pageData[pageData.length-1].name %>
+                    </h1>
+                    <a href="/post/<%= pageData[pageData.length-1].slug %>" class="contact-button"
+                        style="margin-top: 20px;">Read
+                        More</a>
+                </div>
+            </div>
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="container">
+                <h1 class="blog-posts-title">
+                    Posts
+                </h1>
+                <div class="blog-posts-top-area">
+                    <div class="big-blog-post" data-background-image="<%= pageData[pageData.length-1].data[5].data %>"
+                        style="background-position: center; overflow-y: hidden; background-size: cover;">
+                        <div
+                            style="height: 817px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0px 40px; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.403) 100%);">
+                            <p class="blog-post-date">
+                                <%= pageData[pageData.length-1].data[4].data %>
+                            </p>
+                            <h1 class="blog-post-title">
+                                <%= pageData[pageData.length-1].data[1].data %>
+                            </h1>
+
+                        </div>
+                        <div class="slide-up-blog-post-data">
+                            <p class="blog-post-date">
+                                <%= pageData[pageData.length-1].data[4].data %>
+                            </p>
+                            <h1 class="blog-post-title">
+                                <%= pageData[pageData.length-1].data[1].data %>
+                            </h1>
+                            <div class="arrow-link"
+                                onclick="window.open('/post/<%= pageData[pageData.length-1].slug %>', '_self')">
+                                <p style="color: #ffc300; font-size: 20px;">Read More</p>
+                                <img src="images/arrow.svg" alt="" class="arrow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-post-area-vert">
+                        <div class="blog-post" data-background-image="<%= pageData[pageData.length-2].data[5].data %>"
+                            style=" background-position: center; overflow-y: hidden; background-size: cover;">
+                            <div
+                                style="height: 398px; display: flex; flex-direction: column; justify-content: flex-end;  padding: 0px 40px;  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.403) 100%);">
+                                <p class="blog-post-date">
+                                    <%= pageData[pageData.length-2].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[pageData.length-2].data[1].data %>
+                                </h1>
+                            </div>
+                            <div class="slide-up-blog-post-data-small">
+                                <p class="blog-post-date">
+                                    <%= pageData[pageData.length-2].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[pageData.length-2].data[1].data %>
+                                </h1>
+                                <div class="arrow-link"
+                                    onclick="window.open('/post/<%= pageData[pageData.length-2].slug %>', '_self')">
+                                    <p style="color: #ffc300; font-size: 20px;">Read More</p>
+                                    <img src="images/arrow.svg" alt="" class="arrow">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-post" data-background-image="<%= pageData[pageData.length-3].data[5].data %>"
+                            style="background-position: center; overflow-y: hidden; background-size: cover;">
+                            <div
+                                style="height: 398px; display: flex; flex-direction: column; justify-content: flex-end;  padding: 0px 40px; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.403) 100%);">
+
+                                <p class="blog-post-date">
+                                    <%= pageData[pageData.length-3].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[pageData.length-3].data[1].data %>
+                                </h1>
+                            </div>
+                            <div class="slide-up-blog-post-data-small">
+                                <p class="blog-post-date">
+                                    <%= pageData[pageData.length-3].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[pageData.length-3].data[1].data %>
+                                </h1>
+
+                                <div class="arrow-link"
+                                    onclick="window.open('/post/<%= pageData[pageData.length-3].slug %>', '_self')">
+                                    <p style="color: #ffc300; font-size: 20px;">Read More</p>
+                                    <img src="images/arrow.svg" alt="" class="arrow">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-post-area-horz" style="margin-top: 20px;">
+                    <% for( let i=0; i < pageData.length - 3; i++ ) { %>
+                        <div class="blog-post" data-background-image="<%= pageData[i].data[5].data %>"
+                            style=" background-position: center; overflow-y: hidden; background-size: cover;">
+                            <div
+                                style="height: 398px; display: flex; flex-direction: column; justify-content: flex-end;  padding: 0px 40px; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.403) 100%);">
+                                <p class="blog-post-date">
+                                    <%= pageData[i].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[i].data[1].data %>
+                                </h1>
+
+                            </div>
+                            <div class="slide-up-blog-post-data-small">
+                                <p class="blog-post-date">
+                                    <%= pageData[i].data[4].data %>
+                                </p>
+                                <h1 class="blog-post-title">
+                                    <%= pageData[i].data[1].data %>
+                                </h1>
+                                <div class="arrow-link" onclick="window.open('/post/<%= pageData[i].slug %>', '_self')">
+                                    <p style="color: #ffc300; font-size: 20px;">Read More</p>
+                                    <img src="images/arrow.svg" alt="" class="arrow">
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+
+                </div>
+
+
+            </div>
+
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+            <script>
+                AOS.init({
+                    once: true,
+                });
+
+                const initialiseStyleBackgroundIntersectionObserver = () => {
+                    const lazyBackgrounds = Array.from(document.querySelectorAll('[data-background-image]'));
+
+                    if (lazyBackgrounds.length === 0) {
+                        return;
+                    }
+
+                    let lazyBackgroundObserver;
+
+                    const loadBackgroundIfElementOnScreen = (entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.backgroundImage = `url('${entry.target.dataset.backgroundImage}')`;
+                            lazyBackgroundObserver.unobserve(entry.target);
+                        }
+                    };
+
+                    const observeElementVisibility = (lazyBackground) => {
+                        lazyBackgroundObserver.observe(lazyBackground);
+                    };
+
+                    const setBackground = (element) => {
+                        element.style.backgroundImage = `url('${entry.target.dataset.backgroundImage}')`;
+                    };
+
+                    if (typeof window.IntersectionObserver === 'function') {
+                        lazyBackgroundObserver = new IntersectionObserver((entries) => {
+                            entries.forEach(loadBackgroundIfElementOnScreen);
+                        });
+                        lazyBackgrounds.forEach(observeElementVisibility);
+                    } else {
+                        lazyBackgrounds.forEach(setBackground);
+                    }
+                };
+
+                if (typeof document.readyState === 'string' && document.readyState === 'complete') {
+                    initialiseStyleBackgroundIntersectionObserver();
+                } else {
+                    document.addEventListener('DOMContentLoaded', initialiseStyleBackgroundIntersectionObserver, true);
+                }
+            </script>
+    </body>
+
+</html>

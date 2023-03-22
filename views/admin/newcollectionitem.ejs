@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="css/admin/style.css">
+</head>
+
+<body>
+    <div class="main-area">
+        <div class="sidebar">
+            <h1></h1>
+            <div style="min-height: 200px; height: auto; display: flex; flex-direction: column;">
+                <h1 style="font-size: 16px; margin-bottom: 5px; letter-spacing: 0.05em; color: rgba(0, 0, 0, 0.197);">
+                    COLLECTIONS</h1>
+                <% for( let i=0; i < collections.length; i++ ) { %>
+                    <a href="/admin/collection/<%= collections[i] %>" class="sidebarLink">
+                        <%= collections[i] %>
+                    </a>
+                    <% } %>
+
+            </div>
+            <div style="min-height: 200px; height: auto; display: flex; flex-direction: column;">
+                <h1 style="font-size: 16px; margin-bottom: 5px; letter-spacing: 0.05em; color: rgba(0, 0, 0, 0.196);">
+                    SINGLES
+                </h1>
+
+            </div>
+        </div>
+        <div class="main">
+            <div style="margin-left: 100px;">
+                <div style="display: flex; flex-direction: row; align-items: center; align-content: center; margin-top: 60px; margin-bottom: 30px;">
+                    <h1 style="font-size: 30px; letter-spacing: 0.05em; text-transform: uppercase;">
+                        New
+                        <%= collectionName %>
+                    </h1>
+                    <form action="/admin/savecollection/<%= collectionSchemaData.name %>" method="post" id="save-form">
+                        <input type="text" style="display: none;" name="documentData" id="save-data-input">
+                        <button type="button" onclick="save()" value="New" class="button-dark" style="margin-left: 15px;">Save</button>
+                    </form>
+                </div>
+                <div id="data-area">
+                    <div style="display: flex; flex-direction: column; overflow-y: auto; max-width: 630px;" id="schema-area">
+
+
+                    </div>
+                    <div style="display: flex; flex-direction: row; overflow-y: auto; max-width: 630px; margin-top: 40px;" id="tab-button-area">
+                        <!-- <button class="button-dark" style="width: fit-content;" class="tablinks" onclick="openTab(event, 'tab3content')">Tab 3</button> -->
+                    </div>
+                    <div style="display: flex; flex-direction: column; overflow-y: auto; max-width: 630px;" id="tab-area">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const schemaArea = document.getElementById('schema-area')
+        const tabButtonArea = document.getElementById('tab-button-area')
+        const tabArea = document.getElementById('tab-area')
+        var schemaData = '<%- collectionSchemaDataJson %>'
+        var blockListData = '<%- blockListJson %>'
+        var collectionData = '<%- collectionDataJson %>'
+        schemaData = JSON.parse(schemaData)
+        blockListData = JSON.parse(blockListData)
+        console.log(schemaData)
+        collectionData = JSON.parse(collectionData)
+    </script>
+    <script src="js/editcollectionitem.js"></script>
+</body>
+
+</html>

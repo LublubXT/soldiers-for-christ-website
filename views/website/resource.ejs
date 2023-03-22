@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+            <div class="header-area-small"
+                style="background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.625) 100%), center / cover no-repeat url('<%= headerImage %>'); display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center; z-index: 0;">
+                <div class="container"
+                    style="display: column; justify-content: center; align-items: center; align-content: center; height: 100%;">
+
+                    <h1 style="margin: 0px; margin-bottom: 100px; margin-left: -5px; text-align: left;"
+                        class="header-title">
+                        <%= pageData.name %>
+                    </h1>
+
+                </div>
+            </div>
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="lesson-audio-container">
+                <div class="lesson-audio-area" id="lesson-audio-area">
+                    <h2 style="color: #001d3d; font-size: 25px; margin-top: 0px;">Resource</h2>
+                </div>
+            </div>
+            <div class="container" id="lesson-text-area" style="z-index: 10; padding-bottom: 50px;">
+
+            </div>
+
+
+
+            <script>
+                var lessonTextArea = document.getElementById('lesson-text-area')
+                var lessonAudioArea = document.getElementById('lesson-audio-area')
+                var pageData = '<%- pageDataJson %>'
+                pageData = JSON.parse(pageData)
+
+                lessonTextData = pageData.data[1].data
+                lessonAudioData = pageData.data[0].data
+
+                console.log(lessonTextData)
+                console.log(lessonAudioData)
+
+                for (var i = 0; i < lessonTextData.length; i++) {
+                    if (lessonTextData[i].type == 'paragraph') {
+                        lessonTextArea.innerHTML += `<p>${lessonTextData[i].data}</p>`
+                    } else if (lessonTextData[i].type == 'heading1') {
+                        lessonTextArea.innerHTML += `<h1>${lessonTextData[i].data}</h1>`
+                    } else if (lessonTextData[i].type == 'heading2') {
+                        lessonTextArea.innerHTML += `<h2>${lessonTextData[i].data}</h2>`
+                    } else if (lessonTextData[i].type == 'heading3') {
+                        lessonTextArea.innerHTML += `<h3>${lessonTextData[i].data}</h3>`
+                    } else if (lessonTextData[i].type == 'upload-file') {
+                        console.log("ading audio", lessonTextData[i].data)
+                        lessonTextArea.innerHTML += `<button onclick="download('${lessonTextData[i].data}', '${lessonTextData[i].data.split('/')[1]}')" class="yellow-button" >Download</button>`
+                    }
+                }
+
+                for (var i = 0; i < lessonAudioData.length; i++) {
+                    if (lessonAudioData[i].type == 'paragraph') {
+                        lessonAudioArea.innerHTML += `<p>${lessonAudioData[i].data}</p>`
+                    } else if (lessonAudioData[i].type == 'heading1') {
+                        lessonAudioArea.innerHTML += `<h1>${lessonAudioData[i].data}</h1>`
+                    } else if (lessonAudioData[i].type == 'heading2') {
+                        lessonAudioArea.innerHTML += `<h2>${lessonAudioData[i].data}</h2>`
+                    } else if (lessonAudioData[i].type == 'heading3') {
+                        lessonAudioArea.innerHTML += `<h3>${lessonAudioData[i].data}</h3>`
+                    } else if (lessonAudioData[i].type == 'upload-audio') {
+                        console.log("ading audio", lessonAudioData[i].data)
+                        lessonAudioArea.innerHTML += `<audio controls style="margin-bottom: 10px; width: 100%;">
+                                <source style="background-color: black;" src="${lessonAudioData[i].data}" type="audio/mpeg">
+
+                                Your browser does not support the audio element.
+                            </audio>`
+                    } else if (lessonAudioData[i].type == 'upload-image') {
+                        console.log("ading audio", lessonAudioData[i].data)
+                        lessonAudioArea.innerHTML += `<img src="${lessonAudioData[i].data}" style="width: 100%; height: auto;" />`
+                    }
+                }
+
+                const download = async (url, filename) => {
+                    const data = await fetch(url)
+                    const blob = await data.blob()
+                    const objectUrl = URL.createObjectURL(blob)
+
+                    const link = document.createElement('a')
+
+                    link.setAttribute('href', objectUrl)
+                    link.setAttribute('download', filename)
+                    link.style.display = 'none'
+
+                    document.body.appendChild(link)
+
+                    link.click()
+
+                    document.body.removeChild(link)
+                }
+            </script>
+    </body>
+
+</html>

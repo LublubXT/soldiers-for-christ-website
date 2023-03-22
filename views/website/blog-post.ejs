@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+            <div class="header-area-small"
+                style="background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.625) 100%), center / cover no-repeat url('<%= headerImage %>'); display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
+                <div class="container"
+                    style="display: column; justify-content: center; align-items: center; align-content: center; height: 100%;">
+
+                    <h1 style="margin: 0px; margin-bottom: 20px; margin-left: -5px; text-align: left;"
+                        class="header-title">
+                        <%= pageData.name %>
+                    </h1>
+                    <div class="post-details" style="margin-bottom: 80px;">
+                        <p
+                            style="margin: 0px; text-align: left; text-transform: capitalize; color: #001d3dab; font-size: 20px; margin-bottom: 15px; font-weight: 300;">
+                            Date Posted:
+                            <%= pageData.data[4].data %>
+                        </p>
+                        <p
+                            style="margin: 0px; text-align: left; text-transform: capitalize; color: #001d3dab; font-size: 20px; margin-bottom: 15px; font-weight: 300;">
+                            Author:
+                            <%= pageData.data[6].data %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="post-header-image"
+                style="background-image: url('<%= pageData.data[5].data %>'); background-size: cover; background-position: center;">
+
+            </div>
+
+            <div class="container" id="blog-post-area">
+
+            </div>
+
+
+
+            <script>
+                var blogPostArea = document.getElementById('blog-post-area')
+                var pageData = '<%- pageDataJson %>'
+                pageData = JSON.parse(pageData)
+
+                postData = pageData.data[0].data
+
+                console.log(postData)
+
+                for (var i = 0; i < postData.length; i++) {
+                    if (postData[i].type == 'paragraph') {
+                        blogPostArea.innerHTML += `<p>${postData[i].data}</p>`
+                    } else if (postData[i].type == 'heading1') {
+                        blogPostArea.innerHTML += `<h1>${postData[i].data}</h1>`
+                    } else if (postData[i].type == 'heading2') {
+                        blogPostArea.innerHTML += `<h2>${postData[i].data}</h2>`
+                    } else if (postData[i].type == 'heading3') {
+                        blogPostArea.innerHTML += `<h3>${postData[i].data}</h3>`
+                    }
+                }
+            </script>
+    </body>
+
+</html>

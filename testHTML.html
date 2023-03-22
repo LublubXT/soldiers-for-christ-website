@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="input">
+
+    <script>
+        var collectionData = '{"_id":"64074be17fbea52dc59dd8ed","name":"Home","slug":"home","data":[{"block_area_id":"page-data-block-area","type":"paragraph","name":"Header Verse Text","data":"\\"Thou therefore endure hardness, as a good soldier of Jesus Christ. No man that warreth entangleth himself with the affairs of this life; that he may please him who hath chosen him to be a soldier. And if a man also strive for masteries, yet is he not crowned, except he strive lawfully.\\"","id":"G6btL8mdFQ"}],"__v":1}'
+        collectionData = JSON.parse(collectionData)
+        console.log(collectionData)
+        document.getElementById('input').value = collectionData.data[0].data
+    </script>
+</body>
+
+</html>

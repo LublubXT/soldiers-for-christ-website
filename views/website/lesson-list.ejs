@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+            <div class="header-area-small"
+                style="background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.625) 100%), center / cover no-repeat url('<%= headerImage %>'); display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
+                <div class="container"
+                    style="display: column; justify-content: center; align-items: center; align-content: center; height: 100%;">
+                    <p
+                        style="margin: 0px; text-align: left; text-transform: uppercase; color: #001d3d50; font-size: 20px; margin-bottom: 15px; font-weight: 700;">
+                        Most Recent Lesson
+                    </p>
+                    <h1 style="margin: 0px; margin-bottom: 30px; margin-left: -5px; text-align: left;"
+                        class="header-title">
+                        <%= pageData[0].name %>
+                    </h1>
+                    <a href="/lesson/<%= pageData[0].slug %>" class="contact-button" style="margin-top: 20px;">Go
+                        to Lesson</a>
+                </div>
+            </div>
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="container">
+                <h1 class="blog-posts-title">
+                    lessons
+                </h1>
+                <div class="lesson-list-container">
+                    <div class="lesson-item-active">
+                        <p class="lesson-item-number">
+                            <%= pageData[0].data[2].data %>
+                        </p>
+                        <p class="lesson-item-name">
+                            <%= pageData[0].data[3].data %>
+                        </p>
+                        <a href="/lesson/<%= pageData[0].slug %>" class="yellow-button"
+                            style="margin-top: 0px; min-width: calc(151px - 50px);">Go
+                            to Lesson</a>
+                    </div>
+
+                    <% for( let i=1; i < pageData.length; i++ ) { %>
+                        <div class="lesson-item">
+                            <p class="lesson-item-number">
+                                <%= pageData[i].data[2].data %>
+                            </p>
+                            <p class="lesson-item-name">
+                                <%= pageData[i].data[3].data %>
+                            </p>
+                            <a href="/lesson/<%= pageData[i].slug %>" class="yellow-button"
+                                style="margin-top: 0px; min-width: calc(151px - 50px);">Go
+                                to Lesson</a>
+                        </div>
+                        <% } %>
+                </div>
+
+
+
+            </div>
+
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+            <script>
+                AOS.init({
+                    once: true,
+                });
+            </script>
+    </body>
+
+</html>

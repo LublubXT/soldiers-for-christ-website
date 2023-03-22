@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="container">
+                <h1 class="blog-posts-title">
+                    resources
+                </h1>
+                <div class="lesson-list-container">
+                    <div class="lesson-item-active">
+                        <p class="resource-item-title">
+                            <%= pageData[0].data[2].data %>
+                        </p>
+
+                        <a href="/resource/<%= pageData[0].slug %>" class="yellow-button" style="margin-top: 0px;">Go
+                            to Resource</a>
+                    </div>
+
+                    <% for( let i=1; i < pageData.length; i++ ) { %>
+                        <div class="lesson-item">
+                            <p class="resource-item-title">
+                                <%= pageData[i].data[2].data %>
+                            </p>
+
+                            <a href="/resource/<%= pageData[i].slug %>" class="yellow-button"
+                                style="margin-top: 0px;">Go
+                                to resource</a>
+                        </div>
+                        <% } %>
+                </div>
+
+
+
+            </div>
+
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+            <script>
+                AOS.init({
+                    once: true,
+                });
+            </script>
+    </body>
+
+</html>

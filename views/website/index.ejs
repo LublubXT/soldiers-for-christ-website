@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Soldiers for Christ</title>
+        <link rel="stylesheet" href="css/website/style.css" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <%- include('partials/navbar'); -%>
+            <div class="header-area"
+                style="background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.697) 100%), center / cover no-repeat url('<%= pageData[4].data %>'); display: flex; flex-direction: row; justify-content: center; align-items: center; align-content: center;">
+                <div class="container"
+                    style="display: column; justify-content: center; align-items: center; align-content: center; height: 100%;">
+                    <p
+                        style="margin: 0px; text-align: center; text-transform: uppercase; color: #001d3d; font-size: 27px; margin-bottom: 15px; font-weight: 300;">
+                        <%= pageData[0].data[0].data %>
+                    </p>
+                    <h1 style="margin: 0px; text-align: center;" class="header-title">
+                        <%= pageData[0].data[1].data %>
+                    </h1>
+                    <div class="header-divider"></div>
+                    <p
+                        style="margin: auto; text-align: center; max-width: 550px; color: #001d3d; font-size: 20px; margin-top: 25px; line-height: 120%; font-weight: 300;">
+                        "
+                        <%= pageData[0].data[2].data %>
+                            "
+
+                    </p>
+                    <p style="margin: auto; margin-top: 5px; font-size: 20px; text-align: center; color: #001d3d; ">
+                        <%= pageData[0].data[3].data %>
+                    </p>
+                </div>
+            </div>
+            <div style="border-top: 2px solid #ededed;"></div>
+            <div class="container-row">
+                <div class="about-team-title">
+                    <h1 class="about-team-title-text">About This Team</h1>
+                </div>
+                <div class="about-block-area">
+                    <div class="about-block" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                        <h1>
+                            <%= pageData[0].data[5].data %>
+                        </h1>
+                        <p>
+                            <%= pageData[0].data[6].data %>
+                        </p>
+                    </div>
+                    <div class="about-block" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                        <h1>
+                            <%= pageData[0].data[7].data %>
+                        </h1>
+                        <p>
+                            <%= pageData[0].data[8].data %>
+                        </p>
+                    </div>
+                    <div class="about-block" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                        <h1>
+                            <%= pageData[0].data[9].data %>
+                        </h1>
+                        <p>
+                            <%= pageData[0].data[10].data %>
+                        </p>
+                    </div>
+                    <div class="about-block" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                        <h1>
+                            <%= pageData[0].data[11].data %>
+                        </h1>
+                        <p>
+                            <%= pageData[0].data[12].data %>
+                        </p>
+                    </div>
+                    <div class="about-block" data-aos="fade-left" data-aos-anchor-placement="center-bottom">
+                        <h1>
+                            <%= pageData[0].data[13].data %>
+                        </h1>
+                        <p>
+                            <%= pageData[0].data[14].data %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%; background-color: #fbfbfb; border-top: 2px solid #ededed;">
+                <div class="container">
+                    <div class="contact-container">
+                        <div style="width: 100%;">
+                            <h1 class="contact-header">
+                                <%= pageData[0].data[16].data %>
+                            </h1>
+                            <p class="contact-text">
+                                <%= pageData[0].data[17].data %>
+                            </p>
+                        </div>
+                        <div class="contact-input-container">
+                            <p class="contact-input-header" data-aos="fade-left" data-aos-delay="0">First Name</p>
+                            <input type="text" class="contact-input" placeholder="First Name" data-aos="fade-left"
+                                data-aos-delay="0">
+                            <p class="contact-input-header" data-aos="fade-left" data-aos-delay="100">Last Name</p>
+                            <input type="text" class="contact-input" placeholder="Last Name" data-aos="fade-left"
+                                data-aos-delay="100">
+                            <p class="contact-input-header" data-aos="fade-left" data-aos-delay="200">Email</p>
+                            <input type="email" class="contact-input" placeholder="Email" data-aos="fade-left"
+                                data-aos-delay="200">
+                            <p class="contact-input-header" data-aos="fade-left" data-aos-delay="300">Name</p>
+                            <textarea class="contact-input" style="height: 150px;" placeholder="Message..."
+                                data-aos="fade-left" data-aos-delay="300"></textarea>
+                            <input type="submit" class="contact-button" value="Send" style="margin-top: 10px;"
+                                data-aos="fade-left" data-aos-delay="300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script>
+                AOS.init({
+                    once: true,
+                });
+            </script>
+    </body>
+
+</html>

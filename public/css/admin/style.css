@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+:root {
+    --first: #fff;
+    --second: #000;
+    --font: 'Courier New', Courier, monospace;
+}
+
+body {
+    margin: 0px;
+    background-color: var(--first);
+    font-family: var(--font);
+    // font-family: 'Courier New', Courier, monospace;
+}
+
+.login-area {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    padding: 30px;
+    border: 1px solid var(--second);
+}
+
+input {
+    padding: 10px 14px;
+    font-size: 17px;
+    border: 1px solid var(--second);
+    font-family: var(--font);
+    outline: none;
+}
+
+.button-dark {
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 900;
+    font-family: var(--font);
+    border: 1px solid var(--second);
+    color: var(--first);
+    background-color: var(--second);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.button-dark:hover {
+    opacity: 0.8;
+}
+
+.main-area {
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.sidebar {
+    width: 200px;
+    height: calc(100vh - 20px);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+    border-right: 1px solid var(--second);
+}
+
+.main {
+    width: calc(100% - 200px);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebarLink {
+    padding: 4px 0px;
+    text-decoration: none;
+    color: var(--second);
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 17px;
+    position: relative;
+    left: 0;
+    text-transform: capitalize;
+    transition: all 0.2s ease;
+}
+
+.sidebarLink:hover {
+    left: 5px;
+}
+
+.collectionLink {
+    min-width: 253px;
+    padding: 30px;
+    height: 163px;
+    border: 1px solid var(--second);
+    font-size: 30px;
+    margin-right: 35px;
+    text-transform: capitalize;
+    color: var(--first);
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 10;
+    background-color: var(--second);
+    bottom: 0px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.collectionLink:hover {
+    bottom: 15px;
+}
+
+.collectionItem {
+    display: block;
+    width: calc(100% - 42px);
+    padding: 0px 20px;
+    height: auto;
+    border: 1px solid var(--second);
+    font-size: 20px;
+    margin-right: 35px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    color: var(--first);
+    font-weight: 400;
+    text-decoration: none;
+    z-index: 10;
+    background-color: var(--second);
+    left: 0px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.collectionItem:hover {
+    left: 10px;
+}
+
+
+/* Style the tab */
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    margin-top: 5px;
+    display: none;
+    padding: 10px 0px;
+    // border: 1px solid rgb(0, 0, 0);
+    // padding-top: 0px;
+}
+
+.text-divider {
+    padding: 5px;
+    color: var(--first);
+    background-color: var(--second);
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.blockListArea {
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.blockItem {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--second);
+    // background-color: var(--second);
+    padding: 10px;
+    border: 1px solid var(--second);
+    margin: 5px 10px 5px 0px;
+    transition: all 0.2s ease;
+}
+
+.blockItem:hover {
+    color: var(--first);
+    background-color: var(--second);
+    cursor: pointer;
+}
